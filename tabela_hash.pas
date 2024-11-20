@@ -14,7 +14,11 @@ var tabela : HashTable;
 		chave : string;
 
 procedure InicializarTabela();
+var
+  i: integer;
 begin
+  for i := 0 to TableSize - 1 do
+    tabela[i] := nil;
 end;
 
 function Hash(chave : string):integer;
@@ -31,9 +35,22 @@ begin
 	Hash := trunc(index);	
 end;
 
-procedure InserirPlaca();
+procedure InserirPlaca(chave: string);
+var
+  novaPlaca: ^Lista;
+  index: integer;
 begin
+  index := Hash(chave);
+  
+
+  new(novaPlaca);
+  novaPlaca^.placa := chave;
+  novaPlaca^.prox := tabela[index]; //encadeamento c/a lista
+  
+  //indice recebe a placa alocada
+  tabela[index] := novaPlaca;
 end;
+
 
 procedure RemoverPlaca();
 begin
@@ -43,11 +60,11 @@ procedure BuscarPlaca();
 begin
 end;
 
-procedure InserirNaTabela(chave : string);
+{procedure InserirNaTabela(chave : string);
 begin;
 	index := Hash(chave);
 	InserirLista(tabela[index]);
-end;
+end; }
 
 procedure InserirLista();
 begin
