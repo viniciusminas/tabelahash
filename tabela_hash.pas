@@ -43,8 +43,10 @@ procedure BuscarPlaca();
 begin
 end;
 
-procedure InserirNaTabela();
+procedure InserirNaTabela(chave : string);
 begin;
+	index := Hash(chave);
+	InserirLista(tabela[index]);
 end;
 
 procedure InserirLista();
@@ -61,5 +63,5 @@ end;
 
 Begin
 chave := 'TYE5A48';
-writeln('Posição: ', Hash(chave));
+writeln('PosiÃ§Ã£o: ', Hash(chave));
 End.
