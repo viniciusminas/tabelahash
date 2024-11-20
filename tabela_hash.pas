@@ -21,6 +21,7 @@ begin
     tabela[i] := nil;
 end;
 
+
 function Hash(chave : string):integer;
 var soma, mult, index, float : real;
 		i:integer;
@@ -60,14 +61,16 @@ procedure BuscarPlaca();
 begin
 end;
 
-{procedure InserirNaTabela(chave : string);
+procedure InserirLista();
+begin
+end;
+
+procedure InserirNaTabela(chave : string);
+var
+	index: integer;
 begin;
 	index := Hash(chave);
 	InserirLista(tabela[index]);
-end; }
-
-procedure InserirLista();
-begin
 end;
 
 procedure DestruirLista();
